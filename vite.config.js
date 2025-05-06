@@ -6,12 +6,12 @@
   export default defineConfig({
     plugins: [vue(),tailwindcss(),],
     server: {
-      proxy: {
-        '/api': {
-          target: 'http://localhost:8080',
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, '/api'),
-        },
+    proxy: {
+      '/api': {
+        target: 'https://airline-system-pbjy.onrender.com',
+        changeOrigin: true,
+        secure: false,
       },
     },
-  })
+  },
+})
