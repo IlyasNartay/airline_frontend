@@ -8,6 +8,7 @@ import ManageBooking from './pages/ManageBooking.vue'
 import AirportDetails from "./pages/AirportDetails.vue";
 import BookingConfirmation from "./pages/BookingConfirmation.vue";
 import BookingForm from "./pages/BookingForm.vue";
+import Profile from "./pages/Profile.vue";
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -17,7 +18,8 @@ const routes = [
   { path: '/manage-booking', name: 'ManageBooking', component: ManageBooking },
   { path: '/airport/:code', name: 'AirportDetails', component: AirportDetails, props: true },
   { path: '/booking-form/:id', name: 'BookingForm',component: BookingForm},
-  { path: '/booking-confirmation/:code', component: BookingConfirmation, props: true}
+  { path: '/booking-confirmation/:code', component: BookingConfirmation, props: true},
+  { path: '/profile', component: Profile, props: true}
 ]
 
 const router = createRouter({
