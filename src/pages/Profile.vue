@@ -33,17 +33,9 @@ import {fetchProfile} from "../api.js";
 const user = ref({})
 const bookings = ref([])
 
-const userInitial = computed(() => {
-  return user.value.username ? user.value.username[0].toUpperCase() : ''
-})
-
 onMounted(async () => {
-  try {
     const res = fetchProfile()
     user.value = res.user
     bookings.value = res.bookings
-  } catch (err) {
-    console.error('Ошибка при загрузке профиля:', err)
-  }
 })
 </script>
