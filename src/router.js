@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-// Импорт страниц
 import Home from './pages/Home.vue'
 import FlightDetail from './pages/FlightDetail.vue'
 import Login from './pages/Login.vue'
