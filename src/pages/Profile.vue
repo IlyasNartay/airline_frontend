@@ -20,7 +20,6 @@
         >
           <p><strong>Рейс:</strong> {{ booking.flight }}</p>
           <p><strong>Дата:</strong> {{ booking.date }}</p>
-          <!-- Добавь другие поля, если нужно -->
         </li>
       </ul>
     </div>
@@ -29,7 +28,6 @@
 
 <script setup>
 import {ref, onMounted} from 'vue'
-import axios from 'axios'
 import {fetchProfile} from "../api.js";
 
 const user = ref({})
