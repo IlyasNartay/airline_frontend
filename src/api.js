@@ -59,10 +59,11 @@ export const fetchAirportDetails = async (airportCode) => {
   return res.data
 }
 
-export const fetchProfile = async() => {
-  const res = await apiClient.get('profile/')
+export const fetchUserProfile = async () => {
+  const res = await apiClient.get('/profile/')
   return res.data
 }
+
 
 /* ----------------------------- БРОНИРОВАНИЕ ---------------------------- */
 

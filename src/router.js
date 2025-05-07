@@ -19,7 +19,7 @@ const routes = [
   { path: '/airport/:code', name: 'AirportDetails', component: AirportDetails, props: true },
   { path: '/booking-form/:id', name: 'BookingForm',component: BookingForm},
   { path: '/booking-confirmation/:code', component: BookingConfirmation, props: true},
-  { path: '/profile', name: 'Profile',component: Profile}
+  { path: '/profile', name: 'Profile', component: Profile}
 ]
 
 const router = createRouter({

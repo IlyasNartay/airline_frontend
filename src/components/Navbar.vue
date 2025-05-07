@@ -6,13 +6,10 @@
       <RouterLink v-if="!token" to="/register" class="text-blue-500">Регистрация</RouterLink>
       <RouterLink v-if="token" to="/manage-booking" class="text-blue-500">Мои брони</RouterLink>
       <button v-if="token" @click="logout" class="text-red-500">Выйти</button>
-       <RouterLink
-        v-if="token"
-        to="/profile"
-        class="w-9 h-9 rounded-full bg-blue-200 text-blue-700 flex items-center justify-center font-bold hover:bg-blue-300 transition"
-        title="Профиль"
-      >
-        P
+        <RouterLink v-if="token" to="/profile">
+        <div class="w-10 h-10 rounded-full bg-blue-500 text-white flex items-center justify-center hover:bg-blue-600">
+          <span class="font-semibold">P</span>
+        </div>
       </RouterLink>
     </div>
   </nav>
