@@ -32,6 +32,10 @@ export const loginUser = async (data) => {
   localStorage.setItem('token', res.data.token)
   return res.data
 }
+export const logOut = async () => {
+  const res = await apiClient.post('logout')
+  return res.data
+}
 
 /* --------------------------- ПОЛУЧЕНИЕ ДАННЫХ -------------------------- */
 
@@ -52,6 +56,11 @@ export const fetchFlightDetails = async (flightId) => {
 
 export const fetchAirportDetails = async (airportCode) => {
   const res = await apiClient.get(`airport/${airportCode}/`)
+  return res.data
+}
+
+export const fetchProfile = async() => {
+  const res = await apiClient.get('profile/')
   return res.data
 }
 
