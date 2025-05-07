@@ -36,7 +36,7 @@ export const loginUser = async (data) => {
 /* --------------------------- ПОЛУЧЕНИЕ ДАННЫХ -------------------------- */
 
 export const fetchIndex = async () => {
-  const res = await apiClient.get('/home')
+  const res = await apiClient.get('/')
   const data = res.data
 
  if (res.data?.promo_code) {
