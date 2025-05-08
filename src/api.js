@@ -2,7 +2,6 @@ import axios from 'axios'
 
 const API_BASE = 'https://airline-system-pbjy.onrender.com/api'
 
-
 const apiClient = axios.create({
   baseURL: API_BASE,
   withCredentials: true,
