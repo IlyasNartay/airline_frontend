@@ -9,6 +9,7 @@ import AirportDetails from "./pages/AirportDetails.vue";
 import BookingConfirmation from "./pages/BookingConfirmation.vue";
 import BookingForm from "./pages/BookingForm.vue";
 import Profile from "./pages/Profile.vue";
+import NotFound from "./pages/NotFound.vue";
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -19,7 +20,8 @@ const routes = [
   { path: '/airport/:code', name: 'AirportDetails', component: AirportDetails, props: true },
   { path: '/booking-form/:id', name: 'BookingForm',component: BookingForm},
   { path: '/booking-confirmation/:code', component: BookingConfirmation, props: true},
-  { path: '/profile', name: 'Profile', component: Profile}
+  { path: '/profile', name: 'Profile', component: Profile},
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound}
 ]
 
 const router = createRouter({
