@@ -8,7 +8,7 @@
       </p>
       <router-link
         to="/"
-        class="inline-block px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-white rounded-full font-semibold transition duration-300"
+        class="inline-block px-6 py-3 bg-[#a48656] hover:bg-[#cea262] text-white rounded-full font-semibold transition duration-300"
       >
         Вернуться на главную
       </router-link>
