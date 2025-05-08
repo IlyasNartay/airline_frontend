@@ -10,7 +10,6 @@ const apiClient = axios.create({
   }
 })
 
-// Добавление токена в заголовки
 apiClient.interceptors.request.use(config => {
   const token = localStorage.getItem('token')
   if (token) {
