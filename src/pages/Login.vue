@@ -51,8 +51,8 @@ async function login() {
   try {
     await loginUser({ username: username.value, password: password.value })
     window.location.href = '/'
-  } catch {
-    alert('Неверные данные для входа')
+  } catch(error) {
+    alert(error)
   }
 }
 </script>

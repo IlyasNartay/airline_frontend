@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100">
-    <div class="w-full max-w-sm bg-white p-6 rounded-xl shadow-md">
+    <div class="w-full max-w-md bg-white p-8 rounded-3xl shadow-xl">
       <h1 class="text-2xl font-bold text-center text-blue-700 mb-5">📝 Регистрация</h1>
       <form @submit.prevent="register" class="space-y-4">
         <div>

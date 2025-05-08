@@ -28,6 +28,8 @@ export const registerUser = async (data) => {
 export const loginUser = async (data) => {
   const res = await apiClient.post('api-token-auth/', data)
   localStorage.setItem('token', res.data.token)
+  const isAdmin = await apiClient.get('admin/userInfo')
+  localStorage.setItem('is_admin', isAdmin.data.users.is_staff)
   return res.data
 }
 export const logOut = async () => {
@@ -77,3 +79,16 @@ export const manageBooking = async (bookingCode) => {
   const res = await apiClient.post('manage-booking/', { booking_code: bookingCode })
   return res.data
 }
+
+export const adminGet = async () =>{
+const res = await apiClient .get('/admin/users/');
+return res.data
+}
+
+export const updateUserApi = async (user) => {
+  return apiClient.put(`/admin/users/${user.id}/`, user);
+};
+
+export const deleteUserApi = async (id) => {
+  return apiClient.delete(`/admin/users/${id}/`);
+};

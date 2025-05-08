@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-white shadow p-4 flex justify-between">
+  <nav class="fixed top-0 left-0 w-full bg-white shadow z-50 bg-white shadow p-4 flex justify-between ">
     <RouterLink to="/" class="text-xl font-bold text-[#a48656] hover:text-[#cea262]">AirBooking </RouterLink>
     <div class="space-x-4">
       <RouterLink v-if="!token" to="/login" class="text-[#a48656] hover:text-[#cea262]">Вход</RouterLink>
