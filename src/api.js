@@ -92,3 +92,8 @@ export const updateUserApi = async (user) => {
 export const deleteUserApi = async (id) => {
   return apiClient.delete(`/admin/users/${id}/`);
 };
+
+export async function addUserApi(userData) {
+  let id = 1
+  return await apiClient.post(`/admin/addusers`, userData)
+}

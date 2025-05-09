@@ -39,7 +39,31 @@
         </tbody>
       </table>
     </div>
+    <!-- Кнопка "Добавить пользователя" -->
+<div class="mb-4 text-right">
+  <ActionButton @click="showAddModal = true" class="bg-green-500 hover:bg-green-600">
+    Добавить пользователя
+  </ActionButton>
+</div>
 
+<!-- Модальное окно для добавления пользователя -->
+<div v-if="showAddModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white rounded-lg p-6 w-full max-w-md">
+    <h2 class="text-xl font-semibold mb-4">Новый пользователь</h2>
+
+    <div class="space-y-3">
+      <input v-model="newUser.username" type="text" placeholder="Username" class="w-full border rounded px-3 py-2" />
+      <input v-model="newUser.email" type="email" placeholder="Email" class="w-full border rounded px-3 py-2" />
+      <input v-model="newUser.password" type="password" placeholder="Пароль" class="w-full border rounded px-3 py-2" />
+      <input v-model="newUser.password2" type="password" placeholder="Повторите пароль" class="w-full border rounded px-3 py-2" />
+    </div>
+
+    <div class="mt-4 flex justify-end space-x-2">
+      <button @click="showAddModal = false" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Отмена</button>
+      <button @click="handleAddUser" class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">Добавить</button>
+    </div>
+  </div>
+</div>
     <!-- Модальное окно для редактирования -->
     <EditUserModal v-if="showEditModal" :user="editUserData" @close="showEditModal = false" @save="updateUser" />
   </div>
@@ -47,9 +71,16 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { adminGet, deleteUserApi, updateUserApi } from '../api.js';
+import { adminGet, addUserApi, deleteUserApi, updateUserApi } from '../api.js';
 import ActionButton from "../components/ActionButton.vue";
 import EditUserModal from "../components/EditUserModal.vue";
+const showAddModal = ref(false);
+const newUser = ref({
+  username: '',
+  email: '',
+  password: '',
+  password2: ''
+});
 
 
 const usersWithBookings = ref([]);
@@ -76,6 +107,37 @@ const editUser = (user) => {
   editUserData.value = { id: user.id, username: user.username, email: user.email };
   showEditModal.value = true;
 };
+
+const handleAddUser = async () => {
+  try {
+    await addUser(
+      newUser.value.username,
+      newUser.value.email,
+      newUser.value.password,
+      newUser.value.password2
+    );
+
+    newUser.value = { username: '', email: '', password: '', password2: '' };
+    showAddModal.value = false;
+
+    const response = await adminGet();
+    usersWithBookings.value = response.data;
+
+  } catch (error) {
+    console.error('Ошибка при добавлении пользователя', error);
+  }
+};
+
+const addUser = async (username, email, password, password2) => {
+  try {
+    const newUser = { username, email, password, password2 };
+    await addUserApi(newUser);
+  } catch (error) {
+    console.error('Ошибка при добавлении пользователя', error);
+    throw error;
+  }
+};
+
 
 const updateUser = async () => {
   try {
