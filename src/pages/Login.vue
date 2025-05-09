@@ -50,7 +50,8 @@ const router = useRouter()
 async function login() {
   try {
     await loginUser({ username: username.value, password: password.value })
-    window.location.href = '/'
+    if(localStorage.getItem('is_admin') === 'true')window.location.href = '/admin'
+    else window.location.href = '/'
   } catch(error) {
     alert(error)
   }
