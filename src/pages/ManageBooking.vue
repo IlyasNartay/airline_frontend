@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-20 px-4 pt-5 max-w-md mx-auto bg-white rounded-2xl shadow-xl">
+  <div class="relative top-25 p-6 max-w-md mx-auto bg-white rounded-2xl shadow-xl">
     <h1 class="text-3xl font-bold mb-6 text-center text-blue-800">Управление бронированием</h1>
 
     <div class="mb-4">

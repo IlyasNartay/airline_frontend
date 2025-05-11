@@ -1,5 +1,5 @@
 <template>
-  <div class=" bg-gradient-to-br from-[#ffffff] via-[#f8f9fd] to-[#eef1f7] text-gray-800 p-8 max-w-5xl mx-auto m-6">
+  <div class=" relative top-20 bg-gradient-to-br from-[#ffffff] via-[#f8f9fd] to-[#eef1f7] text-gray-800 p-8 max-w-5xl mx-auto">
     <h1 class="text-4xl font-bold mb-10 text-gray-900">Профиль пользователя</h1>
 
     <div v-if="loading" class="text-indigo-500 text-lg animate-pulse">
@@ -9,7 +9,7 @@
     <div v-else>
       <!-- User Info -->
       <div class="bg-white rounded-xl p-6 mb-10 shadow-md border border-gray-200 transition hover:shadow-lg">
-        <h2 class="text-2xl font-semibold text-indigo-600 mb-4">Информация</h2>
+        <h2 class="text-2xl font-semibold text-[#a48656] mb-4">Информация</h2>
         <div class="space-y-3">
           <p><span class="text-gray-500">Имя:</span> {{ user.username }}</p>
           <p><span class="text-gray-500">Email:</span> {{ user.email }}</p>
@@ -18,7 +18,7 @@
 
       <!-- Bookings -->
       <div class="bg-white rounded-xl p-6 shadow-md border border-gray-200 transition hover:shadow-lg">
-        <h2 class="text-2xl font-semibold text-fuchsia-600 mb-4">Мои бронирования</h2>
+        <h2 class="text-2xl font-semibold text-[#a48656] mb-4">Мои бронирования</h2>
 
         <div v-if="bookings.length === 0" class="text-gray-400 italic">
           Бронирований пока нет.

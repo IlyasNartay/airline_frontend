@@ -40,13 +40,14 @@ import AirportCard from "../components/AirportCard.vue";
 const airports = ref([])
 const flights = ref([])
 const loading = ref(true)
-const promoCode = localStorage.getItem('promo_code')
+const promoCode = ref('')
 const token = computed(() => localStorage.getItem('token'))
 
 onMounted(async () => {
   const data = await fetchIndex()
   airports.value = data.airports
   flights.value = data.flights
+  promoCode.value = data.promo_code ||localStorage.getItem('promo_code')
   loading.value = false
 })
 </script>
